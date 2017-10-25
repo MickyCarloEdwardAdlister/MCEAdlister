@@ -1,4 +1,6 @@
-use mce_db;
+
+
+CREATE DATABASE IF NOT EXISTS mce_db;
 
 DROP TABLE IF EXISTS ads;
 DROP TABLE IF EXISTS users;
