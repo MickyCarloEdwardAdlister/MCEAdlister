@@ -18,17 +18,24 @@ import java.io.IOException;
         request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
     }
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
 
-//                User user = DaoFactory.getUsersDao().findByUsername(username);
-//
-//                if (user == null) {
-//                    response.sendRedirect("/login");
-//                    return;
-//                }
-//
+      //        User user = DaoFactory.getUsersDao().findByUsername(username);
+
+        if (username != null && password != null) {
+
+            // start a session with the key user, asi n the other example
+            request.getSession().setAttribute("user",username);
+
+           request.getRequestDispatcher("/WEB-INF/profile.jsp").forward(request, response);
+         //   response.sendRedirect("/profile");
+        } else {
+            response.sendRedirect("/login");
+        }
+    }
+}
 //                boolean passwordsMatch = Password.check(password, user.getPassword());
 //
 //                if (passwordsMatch) {
@@ -37,6 +44,6 @@ import java.io.IOException;
 //                } else {
 //                    response.sendRedirect("/login");
 //                }
-            }
-        }
+//            }
+//        }
 

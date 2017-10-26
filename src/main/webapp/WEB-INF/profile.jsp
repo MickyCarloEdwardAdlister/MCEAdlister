@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: michael
@@ -8,7 +9,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <jsp:include page="/WEB-INF">
+    <jsp:include page="/WEB-INF/partials/head.jsp">
         <jsp:param name="title" value="Your Profile" />
     </jsp:include>
 </head>
@@ -16,8 +17,7 @@
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
 
 <div class="container">
-    <h1>Welcome, <c:out value="${user.username}"/>!</h1>
-    <p>Your registered email is <c:out value="${user.email}"/></p>
+    <h1>Welcome to <c:out value="${user}"/> store!</h1>
 </div>
 </body>
 </html>
