@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "ontrollers.LoginServlet", urlPatterns = "/login")
+@WebServlet(name = "controllers.LoginServlet", urlPatterns = "/login")
  public class LoginServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 //        if (request.getSession().getAttribute("user") != null) {
@@ -21,18 +21,20 @@ import java.io.IOException;
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
+        boolean emptyInput = username.isEmpty() && password.isEmpty();
 
-      //        User user = DaoFactory.getUsersDao().findByUsername(username);
+//              User user = DaoFactory.getUsersDao().findByUsername(username);
 
-        if (username != null && password != null) {
+        if (emptyInput) {
 
             // start a session with the key user, asi n the other example
-            request.getSession().setAttribute("user",username);
 
-           request.getRequestDispatcher("/WEB-INF/profile.jsp").forward(request, response);
-         //   response.sendRedirect("/profile");
+//           request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
+            request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
         } else {
-            response.sendRedirect("/login");
+            request.getSession().setAttribute("user", username);
+            request.getRequestDispatcher("/WEB-INF/profile.jsp").forward(request, response);
+
         }
     }
 }
