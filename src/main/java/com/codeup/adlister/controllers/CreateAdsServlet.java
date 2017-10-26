@@ -23,12 +23,15 @@ public class CreateAdsServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String title = request.getParameter("title");
         String description = request.getParameter("description");
-boolean validAttempt = !title.isEmpty() && !description.isEmpty();
+        boolean validAttempt = !title.isEmpty() && !description.isEmpty();
 
         if (validAttempt) {
-response.sendRedirect("/ads");
+            response.sendRedirect("/ads");
 
-        } else ()
+        }
+        if (!validAttempt) {
+            response.sendRedirect("/ads/create");
+        }
 //request.getParameter("title");
 //request.getParameter("description");
 //response.sendRedirect("ads");
