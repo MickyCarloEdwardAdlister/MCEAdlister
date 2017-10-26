@@ -8,7 +8,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <jsp:include page="/WEB-INF/partials/head.jsp">
+        <jsp:param name="title" value="Login" />
+    </jsp:include>
 </head>
 <body>
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
@@ -19,13 +21,13 @@
             <label for="username">Username</label>
             <input id="username" name="username" class="form-control" type="text">
         </div>
-        <br>
+
         <div class="form-group">
             <label for="password">Password</label>
             <input id="password" name="password" class="form-control" type="password">
         </div>
-        <br>
-        <input type="submit" class="btn btn-primary btn-block" value="Log In">
+
+        <button type="submit" class="btn btn-primary btn-block">login</button>
     </form>
 </div>
 

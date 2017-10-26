@@ -5,12 +5,19 @@
   Time: 10:15 AM
   To change this template use File | Settings | File Templates.
 --%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>create new ad</title>
+
+<jsp:include page="/WEB-INF/partials/head.jsp">
+    <jsp:param name="title" value="create new ad" />
+</jsp:include>
+
 </head>
 <body>
+
 
 <div class = "container">
     <h1>
@@ -25,7 +32,7 @@
             <label for = "description">description</label>
             <input type="text" id="description" name="description" class = "form-control">
         </div>
-        <button type = "submit">
+        <button type = "submit"  class="btn btn-primary btn-block">
             create new ad
         </button>
     </form>

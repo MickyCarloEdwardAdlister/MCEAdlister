@@ -24,22 +24,22 @@
 
         <form action="/register" method="post">
             <div class="form-group">
-                username : <input id="username" name="username" class="form-control" type="text">
+                <label for="username">Username</label> <input id="username" name="username" class="form-control" type="text">
             </div>
 
             <div class="form-group">
-                email : <input id="email" name="email" class="form-control" type="text">
+                <label for="email">email</label><input id="email" name="email" class="form-control" type="text">
             </div>
 
             <div class="form-group">
-                password : <input id="password" class="form-control" name="password" type="password">
+                <label for="password">Password</label> <input id="password" class="form-control" name="password" type="password">
             </div>
 
             <div class="form-group">
                 <label for="confirm_password">Confirm Password</label>
                 <input id="confirm_password" name="confirm_password" class="form-control" type="password">
             </div>
-            <button type="submit">Register</button>
+            <button type="submit"  class="btn btn-primary btn-block" >Register</button>
 
         </form>
 

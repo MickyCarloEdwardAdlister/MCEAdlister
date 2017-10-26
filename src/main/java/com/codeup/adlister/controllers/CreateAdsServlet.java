@@ -37,4 +37,5 @@ public class CreateAdsServlet extends HttpServlet {
 //request.getParameter("description");
 //response.sendRedirect("ads");
     }
+}
 
