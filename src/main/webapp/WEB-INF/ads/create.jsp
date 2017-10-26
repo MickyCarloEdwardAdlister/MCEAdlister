@@ -15,7 +15,7 @@
     <h1>
         Create a new Ad!
     </h1>
-    <form action="/ads/create" method="get">
+    <form action="/ads/create" method="post">
         <div class = "form-group">
             <label for = "title">title</label>
             <input type="text" id="title" name="title" class = "form-control">

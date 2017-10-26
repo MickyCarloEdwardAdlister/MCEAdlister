@@ -13,19 +13,24 @@ import java.io.IOException;
 @WebServlet(name = "controllers.CreateAdServlet", urlPatterns = "/ads/create")
 public class CreateAdsServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        if (request.getSession().getAttribute("ad") != null) {
-            request.getRequestDispatcher("/WEB-INF/ads/index.jsp").forward(request, response);
-        }
+//        if (request.getSession().getAttribute("ad") != null) {
+//            request.getRequestDispatcher("/WEB-INF/ads/index.jsp").forward(request, response);
+//        }
         request.getRequestDispatcher("/WEB-INF/ads/create.jsp")
                 .forward(request, response);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        if (request.getSession().getAttribute("ad"){
+        String title = request.getParameter("title");
+        String description = request.getParameter("description");
+boolean validAttempt = !title.isEmpty() && !description.isEmpty();
 
-        }
-request.getParameter("title");
-request.getParameter("description");
-response.sendRedirect("ads");
+        if (validAttempt) {
+response.sendRedirect("/ads");
+
+        } else ()
+//request.getParameter("title");
+//request.getParameter("description");
+//response.sendRedirect("ads");
     }
 }
