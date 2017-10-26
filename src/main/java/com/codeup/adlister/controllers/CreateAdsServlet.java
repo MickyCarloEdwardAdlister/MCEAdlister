@@ -1,4 +1,6 @@
 package com.codeup.adlister.controllers;
 
-public class CreateAdsServlet {
+import javax.servlet.http.HttpServlet;
+
+public class CreateAdsServlet  extends HttpServlet{
 }
