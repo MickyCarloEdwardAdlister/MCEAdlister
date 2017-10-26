@@ -11,6 +11,6 @@
     <title>view all ads</title>
 </head>
 <body>
-
+Look at my AdS...
 </body>
 </html>

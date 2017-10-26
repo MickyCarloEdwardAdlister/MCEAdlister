@@ -11,6 +11,23 @@
     <title>create new ad</title>
 </head>
 <body>
-Testing Create Ads
+<div class = "container">
+    <h1>
+        Create a new Ad!
+    </h1>
+    <form action="/ads/create" method="get">
+        <div class = "form-group">
+            <label for = "title">title</label>
+            <input type="text" id="title" name="title" class = "form-control">
+        </div>
+        <div class = "form-group">
+            <label for = "description">description</label>
+            <input type="text" id="description" name="description" class = "form-control">
+        </div>
+        <button type = "submit">
+            create new ad
+        </button>
+    </form>
+</div>
 </body>
 </html>

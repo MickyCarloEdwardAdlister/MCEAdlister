@@ -1,6 +1,6 @@
 package com.codeup.adlister.controllers;
 
-import com.codeup.adlister.dao.DaoFactory;
+//import com.codeup.adlister.dao.DaoFactory;
 import com.codeup.adlister.models.Ad;
 
 import javax.servlet.ServletException;
@@ -12,18 +12,18 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "servlets.ShowAdsServlet", urlPatterns = "/ad")
+@WebServlet(name = "servlets.ShowAdsServlet", urlPatterns = "/ads")
 public class ShowAdsServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         HttpSession session = request.getSession();
 
-        List<Ad> ads = DaoFactory.getAdsDao().all();
+//        List<Ad> ads = DaoFactory.getAdsDao().all();
+//
+//        session.setAttribute("firstAd", ads.get(0).getTitle());
+//
+//        request.setAttribute("ads", ads);
 
-        session.setAttribute("firstAd", ads.get(0).getTitle());
-
-        request.setAttribute("ads", ads);
-
-        request.getRequestDispatcher("/ads/index.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/ads/index.jsp").forward(request, response);
     }
 }
