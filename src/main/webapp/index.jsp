@@ -6,10 +6,10 @@
         <jsp:param name="title" value="Home" />
     </jsp:include>
 </head>
-<body>
+<body style="background-image: url(https://thumbs.dreamstime.com/z/blank-ads-grunge-background-white-advertisement-cut-slips-59071768.jpg)">
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
 <div class="container">
-    <h1 style="color: hotpink" class="text-center">Welcome to the MCE bad ass page </h1>
+    <h1 class="text-center" id="index" style="color: teal; opacity: .9">Welcome to the MCE</h1>
 </div>
 </body>
 </html>
