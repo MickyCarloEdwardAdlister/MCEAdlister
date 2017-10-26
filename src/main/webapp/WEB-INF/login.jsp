@@ -13,7 +13,7 @@
 <body>
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
 <div class="container">
-    <h1>Log in here Amigo!</h1>
+    <h1>Log in here Amigos!</h1>
     <form action="/login" method="POST">
         <div class="form-group">
             <label for="username">Username</label>
