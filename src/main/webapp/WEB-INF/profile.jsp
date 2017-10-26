@@ -18,6 +18,7 @@
 
 <div class="container">
     <h1>Welcome to <c:out value="${user}"/> store!</h1>
+
 </div>
 </body>
 </html>
