@@ -6,6 +6,10 @@
         </div>
         <ul class="nav navbar-nav navbar-right">
 
+            <form action="/search" method="get">
+                <input type="text" name="search">
+                <button type="submit">search</button>
+            </form>
             <li><a href="/login">Login</a></li>
             <li><a href="/logout">Logout</a></li>
         </ul>

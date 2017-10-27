@@ -24,7 +24,27 @@ public class MySQLAdsDao implements Ads{
         throw new RuntimeException("Error connecting to the database!", e);
        }
     }
-
+ public List<Ad> search(String searchTerm) {
+        try{
+            PreparedStatement stmt = connection.prepareStatement( "SELECT * FROM ads WHERE title LIKE ? OR description LIKE ?");
+            stmt.setString(1, "%" + searchTerm + "%");
+            stmt.setString(2, "%" + searchTerm + "%");
+            ResultSet rs = stmt.executeQuery();
+            List ads = new ArrayList();
+            while (rs.next()) {
+                Long id = rs.getLong("id");
+                Long user_id = rs.getLong("user_id");
+                String title = rs.getString("title");
+                String description = rs.getString("description");
+                Ad ad = new Ad(id, user_id, title, description);
+                ads.add(ad);
+            }
+            return ads;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
     @Override
     public List<Ad> all() {
         PreparedStatement statement = null;
