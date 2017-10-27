@@ -3,11 +3,11 @@ var myVar = setInterval(myTimer, 1000);var today = new Date()
 var curHr = today.getHours()
 
 if (curHr < 12) {
-    alert('good morning')
+    alert('Good morning')
 } else if (curHr < 17) {
-    alert('good afternoon')
+    alert('Good afternoon')
 } else {
-    alert('good evening')
+    alert('Good evening')
 }
 
 function myTimer() {
