@@ -1,7 +1,11 @@
 package com.codeup.adlister.controllers;
 import java.awt.*;
 
+import com.codeup.adlister.dao.DaoFactory;
+import com.codeup.adlister.models.User;
+import com.codeup.adlister.util.Password;
 import javafx.scene.control.Alert;
+import org.mindrot.jbcrypt.BCrypt;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -30,11 +34,18 @@ public class RegisterServlet extends HttpServlet {
                         username.isEmpty()
                         || email.isEmpty()
                         || password.isEmpty()
-                        || confirm_password.isEmpty();
+                        || confirm_password.isEmpty()
+                        || (!password.equals(confirm_password));
 
         if (inputErrors) {
             request.setAttribute("error", "All the values are required");
             request.getRequestDispatcher("/WEB-INF/register.jsp").forward(request,response);
+            return;
         }
+        String hash = Password.hash(password);
+        User user = new User(username, email, hash);
+        DaoFactory.getUsersDao().insert(user);
+        response.sendRedirect("/login");
     }
+
 }
