@@ -1,7 +1,6 @@
 package com.codeup.adlister.dao;
 
 import Daos.Config;
-import com.codeup.adlister.controllers.MySQLUsersDao;
 
 public class DaoFactory {
     private static Ads adsDao;

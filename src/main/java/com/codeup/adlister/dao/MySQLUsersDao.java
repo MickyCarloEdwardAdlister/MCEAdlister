@@ -1,8 +1,8 @@
-package com.codeup.adlister.controllers;
+package com.codeup.adlister.dao;
 
-import java.sql.Connection;package com.codeup.adlister.dao;
+import java.sql.Connection;
 import Daos.Config;
-import com.codeup.adlister.dao.Users;
+
 import com.codeup.adlister.models.User;
 import com.mysql.cj.jdbc.Driver;
 
@@ -47,9 +47,9 @@ public class MySQLUsersDao implements Users {
 
         try{
             PreparedStatement statement = connection.prepareStatement(usersCreateQuery,Statement.RETURN_GENERATED_KEYS);
-            statement.setString(1,user.getUsername);
-            statement.setString(3,user.getEmail);
-            statement.setString(2, user.getPassword);
+            statement.setString(1,user.getUsername());
+            statement.setString(3,user.getEmail());
+            statement.setString(2, user.getPassword());
             ResultSet rs = statement.getGeneratedKeys();
             rs.next();
 
@@ -65,11 +65,11 @@ public class MySQLUsersDao implements Users {
     }
     private Users extractUser(ResultSet rs) throws SQLException {
         if (!rs.next()) {
-            return null
+            return null;
 
 
         }
-        return new User(
+        return (Users) new User(
                 rs.getLong("id"),
                 rs.getString("username"),
                 rs.getString("email"),
