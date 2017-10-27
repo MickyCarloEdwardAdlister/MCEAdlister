@@ -5,7 +5,6 @@
             <a class="navbar-brand" href="/ads">Adlister</a>
         </div>
         <ul class="nav navbar-nav navbar-right">
-      <script src="/some.js"></script>
 
             <li><a href="/login">Login</a></li>
             <li><a href="/logout">Logout</a></li>

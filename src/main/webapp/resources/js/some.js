@@ -3,11 +3,11 @@ var myVar = setInterval(myTimer, 1000);var today = new Date()
 var curHr = today.getHours()
 
 if (curHr < 12) {
-    console.log('good morning')
-} else if (curHr < 18) {
-    console.log('good afternoon')
+    alert('good morning')
+} else if (curHr < 17) {
+    alert('good afternoon')
 } else {
-    console.log('good evening')
+    alert('good evening')
 }
 
 function myTimer() {
@@ -16,10 +16,14 @@ function myTimer() {
     document.getElementById("timer").innerHTML = d.toLocaleTimeString();
     return myVar;
 }
+var id = setTimeout(loginPromt, 4000);
 function loginPromt() {
-var p = prompt("would like to log in");
-alert(p);
-window.location = "/login";
+var p = confirm("would like to log in");
+
+if(p) {
+    window.location = "/login";
+    clearTimeout(id)
+}
 }
 
 
