@@ -6,6 +6,7 @@ public class User {
     private String email;
     private String password;
 
+
     public User() { }
 
     public User(String username, String email, String password) {
@@ -20,7 +21,6 @@ public class User {
         this.email = email;
         this.password = password;
     }
-
     public Long getId() {
         return id;
     }
