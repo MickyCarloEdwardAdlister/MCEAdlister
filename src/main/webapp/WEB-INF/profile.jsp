@@ -17,7 +17,7 @@
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
 
 <div class="container">
-    <h1>Welcome to <c:out value="${user}"/> store!</h1>
+    <h1>Welcome to <c:out value="${user.username}"/> store!</h1>
 
 </div>
 </body>

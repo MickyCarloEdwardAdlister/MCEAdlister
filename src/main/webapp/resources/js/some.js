@@ -1,6 +1,5 @@
-
 var myVar = setInterval(myTimer, 1000);var today = new Date()
-var curHr = today.getHours()
+var curHr = today.getHours();
 
 if (curHr < 12) {
     alert('Good morning')
@@ -16,7 +15,7 @@ function myTimer() {
     document.getElementById("timer").innerHTML = d.toLocaleTimeString();
     return myVar;
 }
-var id = setTimeout(loginPromt, 4000);
+var id = setTimeout(loginPromt, 8000);
 function loginPromt() {
 var p = confirm("would like to log in");
 

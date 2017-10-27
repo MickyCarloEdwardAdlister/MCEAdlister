@@ -9,7 +9,7 @@ package com.codeup.adlister.controllers;
         import java.io.IOException;
 
 @WebServlet(name = "controllers.ViewProfileServlet", urlPatterns = "/profile")
-public class ProfileServlet extends HttpServlet {
+public class ViewProfileServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // If the user is not logged in
         if (request.getSession().getAttribute("user") == null ) {
