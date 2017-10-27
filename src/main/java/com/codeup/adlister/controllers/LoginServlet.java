@@ -1,6 +1,9 @@
 package com.codeup.adlister.controllers;
-
+import com.codeup.adlister.dao.DaoFactory;
+import com.codeup.adlister.models.User;
 import com.codeup.adlister.util.Password;
+import org.mindrot.jbcrypt.BCrypt;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,10 +14,10 @@ import java.io.IOException;
 @WebServlet(name = "controllers.LoginServlet", urlPatterns = "/login")
  public class LoginServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//        if (request.getSession().getAttribute("user") != null) {
-//            response.sendRedirect("/profile");
-//            return;
-//        }
+        if (request.getSession().getAttribute("user") != null) {
+            response.sendRedirect("/profile");
+            return;
+        }
         request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
     }
 
@@ -23,29 +26,16 @@ import java.io.IOException;
         String password = request.getParameter("password");
         boolean emptyInput = username.isEmpty() && password.isEmpty();
 
-//              User user = DaoFactory.getUsersDao().findByUsername(username);
+        User user = DaoFactory.getUsersDao().findByUsername(username);
 
-        if (emptyInput) {
 
-            // start a session with the key user, asi n the other example
+        boolean validUser = user != null && Password.check(password,user.getPassword());
+        if(validUser) {
+            request.getSession().setAttribute("user",user);
+            response.sendRedirect("profile");
 
-//           request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
-            request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
-        } else {
-            request.getSession().setAttribute("user", username);
-            request.getRequestDispatcher("/WEB-INF/profile.jsp").forward(request, response);
-
+        }else {
+            response.sendRedirect("/login");
         }
     }
 }
-//                boolean passwordsMatch = Password.check(password, user.getPassword());
-//
-//                if (passwordsMatch) {
-//                    request.getSession().setAttribute("user", user);
-//                    response.sendRedirect("/profile");
-//                } else {
-//                    response.sendRedirect("/login");
-//                }
-//            }
-//        }
-

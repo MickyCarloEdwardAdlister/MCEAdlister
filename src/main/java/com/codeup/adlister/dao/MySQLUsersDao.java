@@ -25,16 +25,16 @@ public class MySQLUsersDao implements Users {
     }
 
     @Override
-    public User findByUsername(String username)  {
-        String SearchQuery = "Select * from Users where username = ?";
+    public User findByUsername(String username) {
+        String SearchQuery = "SELECT * FROM Users WHERE username = ? LIMIT 1";
 
         try {
 
 
             PreparedStatement statement = connection.prepareStatement(SearchQuery);
             statement.setString(1, username);
-            return null;
-        }catch (SQLException e) {
+            return (User) extractUser(statement.executeQuery());
+        } catch (SQLException e) {
             e.printStackTrace();
             throw new RuntimeException("Error finding users", e);
         }
@@ -43,13 +43,14 @@ public class MySQLUsersDao implements Users {
 
     @Override
     public Long insert(User user) {
-        String usersCreateQuery = "insert into users(username, email, password) values(?,?,?)";
+        String createUserQuery = "INSERT INTO users(username, email, password) VALUES(?,?,?)";
 
-        try{
-            PreparedStatement statement = connection.prepareStatement(usersCreateQuery,Statement.RETURN_GENERATED_KEYS);
-            statement.setString(1,user.getUsername());
-            statement.setString(3,user.getEmail());
-            statement.setString(2, user.getPassword());
+        try {
+            PreparedStatement statement = connection.prepareStatement(createUserQuery, Statement.RETURN_GENERATED_KEYS);
+            statement.setString(1, user.getUsername());
+            statement.setString(2, user.getEmail());
+            statement.setString(3, user.getPassword());
+            statement.executeUpdate();
             ResultSet rs = statement.getGeneratedKeys();
             rs.next();
 
@@ -57,24 +58,26 @@ public class MySQLUsersDao implements Users {
             return rs.getLong(1);
 
 
-        }catch (SQLException e){
-           throw new RuntimeException("Error creating user", e);
+        } catch (SQLException e) {
+            throw new RuntimeException("Error creating user", e);
 
 
         }
     }
-    private Users extractUser(ResultSet rs) throws SQLException {
+
+    private User extractUser(ResultSet rs) throws SQLException {
         if (!rs.next()) {
             return null;
 
 
-        }
-        return (Users) new User(
-                rs.getLong("id"),
-                rs.getString("username"),
-                rs.getString("email"),
-                rs.getString("password")
+        } else {
+            return new User(
+                    rs.getLong("id"),
+                    rs.getString("username"),
+                    rs.getString("email"),
+                    rs.getString("password")
 
-        );
+            );
         }
     }
+}

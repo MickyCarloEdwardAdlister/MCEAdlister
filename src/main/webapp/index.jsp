@@ -13,15 +13,11 @@
 <body class="index_background">
 <jsp:include page="/WEB-INF/partials/navbar.jsp"/>
 
+
 <div class="container-fuid">
     <p><i class="fa fa-spinner w3-spin" style="font-size:64px"></i></p>
-    <div>
-        <h4>Time is:</h4>
-        <p id="timer"></p>
-    </div>
 
     <div class="w3-container w3-center w3-animate-zoom">
-        <h1 id="title-index">Welcome to Pink Cheese Cool Arrows</h1>
     </div>
 </div>
 
