@@ -49,16 +49,6 @@ public class MySQLAdsDao implements Ads {
     }
 
     @Override
-    public void userDelete(int id) {
-
-    }
-
-    @Override
-    public List<Ad> findByUsername(long user_id) {
-        return null;
-    }
-
-    @Override
     public List<Ad> all() {
         PreparedStatement statement = null;
 

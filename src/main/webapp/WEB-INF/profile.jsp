@@ -17,7 +17,7 @@
 <jsp:include page="/WEB-INF/partials/navbar-logout.jsp" />
 
 <div class="container">
-    <h1>Welcome to your profile, <c:out value="${user.username}"/></h1>
+    <h1>Welcome to your profile! <c:out value="${user.username}"/></h1>
 
     <a href="/ads/create" class="btn btn-primary" id="profile-create-ads"> create your ad</a>
     <c:forEach var="ad" items="${ads}">

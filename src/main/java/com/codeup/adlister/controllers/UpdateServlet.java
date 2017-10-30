@@ -34,9 +34,9 @@ public class UpdateServlet extends HttpServlet {
 
         Ad ad = DaoFactory.getAdsDao().findById(Long.parseLong(id));
 
-//        if (user.getId() != ad.getUserId()) {
-//            response.sendRedirect("/ads");
-//        } else {
+        if (user.getId() != ad.getUserId()) {
+            response.sendRedirect("/ads");
+        } else {
         if (title.isEmpty()) {
             errors.put("title", "Title is required");
         }
@@ -54,7 +54,7 @@ public class UpdateServlet extends HttpServlet {
             DaoFactory.getAdsDao().update(ad);
             response.sendRedirect("/ads");
         }
-//        }
+        }
 
     }
 }
