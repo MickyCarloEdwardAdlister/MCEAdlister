@@ -26,10 +26,9 @@ public class MySQLAdsDao implements Ads {
             throw new RuntimeException("Error connecting to the database!", e);
         }
     }
-
-    public List<Ad> search(String searchTerm) {
-        try {
-            PreparedStatement stmt = connection.prepareStatement("SELECT * FROM ads WHERE title LIKE ? OR description LIKE ?");
+ public List<Ad> search(String searchTerm) {
+        try{
+            PreparedStatement stmt = connection.prepareStatement( "SELECT * FROM ads WHERE title LIKE ? OR description LIKE ?");
             stmt.setString(1, "%" + searchTerm + "%");
             stmt.setString(2, "%" + searchTerm + "%");
             ResultSet rs = stmt.executeQuery();
@@ -48,7 +47,6 @@ public class MySQLAdsDao implements Ads {
             return null;
         }
     }
-
     @Override
     public List<Ad> all() {
         PreparedStatement statement = null;
@@ -64,6 +62,7 @@ public class MySQLAdsDao implements Ads {
     }
 
     @Override
+
     public boolean adsDelete(Long id) { //allow user to delete ads from his profile page
         PreparedStatement stmt = null;
         try {
@@ -77,6 +76,7 @@ public class MySQLAdsDao implements Ads {
     }
 
     @Override
+
     public Long insert(Ad ad) {
 
         try {
@@ -114,21 +114,21 @@ public class MySQLAdsDao implements Ads {
         }
         return ads;
     }
-
-    public List<Ad> findByUsername(long user_id) {
-        PreparedStatement stmt;
+    public void update(Ad ad) {
         try {
-            stmt = connection.prepareStatement("SELECT * FROM ads WHERE user_id = ?");
-            stmt.setLong(1, user_id);
-            ResultSet rs =stmt.executeQuery();
-            return createAdsFromResults(rs);
+            String query = "UPDATE ads SET (title=?, description=?) WHERE id=?";
+            PreparedStatement statement = connection.prepareStatement(query
+            );
+            statement.setLong(1, ad.getId());
+            statement.setString(2, ad.getTitle());
+            statement.setString(3, ad.getDescription());
+
+            statement.executeUpdate();
 
         } catch (SQLException e) {
-          throw new RuntimeException("error retrieving your ads");
-
+            throw new RuntimeException("Error creating a new ad.", e);
         }
     }
+
 }
-
-
 
