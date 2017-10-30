@@ -21,7 +21,7 @@ public class ShowAdsServlet extends HttpServlet {
 
         List<Ad> ads = DaoFactory.getAdsDao().all();
 
-        session.setAttribute("firstAd", ads.get(1).getTitle());
+        session.setAttribute("firstAd", ads.get(0).getTitle());
 
         request.setAttribute("ads", ads);
 
