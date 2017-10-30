@@ -12,7 +12,7 @@
                 <button type="submit">search</button>
             </form>
 
-            <li><a href="/login">Login</a></li>
+            <li><a href="/logout">Logout</a></li>
             <li><a id="timer"></a></li>
         </ul>
     </div><!-- /.navbar-collapse -->

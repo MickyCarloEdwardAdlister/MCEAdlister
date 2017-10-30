@@ -13,16 +13,18 @@ import java.io.IOException;
 
 public class DeleteServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.sendRedirect("/ads");
+        String id = request.getParameter("id");
+        boolean k =  DaoFactory.getAdsDao().adsDelete(Long.parseLong(id));
+        response.sendRedirect("/profile");
     }
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String id = request.getParameter("id");
-        DaoFactory.getAdsDao().userDelete(Integer.valueOf(id));
-        if(request.getHeader("Referer").contains("show")){
-            response.sendRedirect("/ads");
-        } else {
-            response.sendRedirect(request.getHeader("Referer"));
-        }
-    }
+//    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//        String id = request.getParameter("id");
+//       boolean k =  DaoFactory.getAdsDao().adsDelete(Long.parseLong(id));
+//        if (k) {
+//            request.getRequestDispatcher("/WEB-INF/profile.jsp").forward(request,response);
+//        } else{
+//            response.sendRedirect("/ads");
+//        }
+//    }
 }

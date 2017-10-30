@@ -14,7 +14,7 @@
     </jsp:include>
 </head>
 <body>
-<jsp:include page="/WEB-INF/partials/navbar.jsp" />
+<jsp:include page="/WEB-INF/partials/navbar-logout.jsp" />
 
 <div class="container">
     <h1>Welcome to your profile, <c:out value="${user.username}"/></h1>
@@ -24,6 +24,8 @@
         <div class="col-md-6">
             <h2><c:out value="${ad.title}"/></h2>
             <p><c:out value="${ad.description}"/></p>
+            <a href="/delete?id=<c:out value="${ad.id}"/>" class="btn btn-primary" id="delete"> Delete Ad</a>
+
         </div>
     </c:forEach>
 

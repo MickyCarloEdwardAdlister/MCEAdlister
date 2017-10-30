@@ -13,7 +13,7 @@
     </jsp:include>
 </head>
 <body>
-<jsp:include page="/WEB-INF/partials/navbar.jsp" />
+<%--<jsp:include page="/WEB-INF/partials/navbar.jsp" />--%>
 <div class="container">
     <h1>Log in here Amigos!</h1>
     <form action="/login" method="POST">
@@ -30,7 +30,9 @@
         <button type="submit" class="btn btn-primary btn-block">login</button>
     </form>
 </div>
-
+<script src="/resources/jquery/j-query.js" type="text/javascript"></script>
+<script src = "/resources/jquery/jquery-ui.js" type="text/javascript"></script>
+<script src="/resources/js/some.js" type="text/javascript"></script>
 </body>
 </html>
 
