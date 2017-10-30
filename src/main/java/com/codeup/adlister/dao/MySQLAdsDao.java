@@ -62,6 +62,18 @@ public class MySQLAdsDao implements Ads {
     }
 
     @Override
+    public void userDelete(int id) { //allow user to delete ads from his profile page
+        PreparedStatement stmt = null;
+        try {
+            stmt = connection.prepareStatement("DELETE FROM ads where id = ?");
+            stmt.setLong(1,id);
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException("Error deleting this ad");
+        }
+    }
+
+    @Override
     public Long insert(Ad ad) {
 
         try {
@@ -100,4 +112,6 @@ public class MySQLAdsDao implements Ads {
         return ads;
     }
 }
+
+
 
