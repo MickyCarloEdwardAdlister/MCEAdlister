@@ -52,7 +52,7 @@ public class UpdateServlet extends HttpServlet {
             ad.setTitle(title);
             ad.setDescription(description);
             DaoFactory.getAdsDao().update(ad);
-            response.sendRedirect("/ads");
+            response.sendRedirect("/profile");
         }
         }
 
