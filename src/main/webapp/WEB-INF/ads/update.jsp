@@ -15,16 +15,18 @@
 
     <h2>Update ads information</h2>
 
-    <form action="/ads/create" method="post">
+    <form action="/ads/update" method="post">
+
+        <input type="hidden" name="id" value="${ad.id}">
 
         <div class = "form-group">
             <label for = "title">title</label>
-            <input type="text" id="title" name="title" class = "form-control">
+            <input type="text" id="title" name="title" class = "form-control" value="${ad.title}">
         </div>
 
         <div class = "form-group">
             <label for = "description">description</label>
-            <input type="text" id="description" name="description" class = "form-control">
+            <input type="text" id="description" name="description" class = "form-control" value="${ad.description}">
         </div>
 
         <button type = "update"  class="btn btn-primary btn-block">Update</button>
