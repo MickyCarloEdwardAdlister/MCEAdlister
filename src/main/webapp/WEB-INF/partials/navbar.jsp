@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <head>
     <jsp:include page="/WEB-INF/partials/head.jsp">
         <jsp:param name="title" value="Home"/>
@@ -19,7 +20,18 @@
                 <button type="submit">search</button>
             </form>
 
-            <li><a href="/login" id="login">Login</a></li>
+            <%--if user is null use login button--%>
+            <c:if test="${sessionScope.get('user') == null}">
+                <li><a href="/login" id="login">Login</a></li>
+
+            </c:if>
+            <%--if user is not null use logout button--%>
+            <c:if test="${sessionScope.get('user') != null}">
+                <li><a href="/logout" id="logout">Logout</a></li>
+
+            </c:if>
+
+
             <li><a id="timer"></a></li>
         </ul>
     </div><!-- /.navbar-collapse -->
