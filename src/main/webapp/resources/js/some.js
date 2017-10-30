@@ -24,6 +24,14 @@ if(p) {
     clearTimeout(id)
 }
 }
+function createAdForUser() {
+    var button = document.getElementById('profile-create-ads').onclick;
+if (button){
+    window.showModalDialog("/ads/create");
+}
+
+}
+
 
 
 
