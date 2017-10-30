@@ -14,7 +14,7 @@
     </jsp:include>
 </head>
 <body id="profile-back">
-<jsp:include page="/WEB-INF/partials/navbar-logout.jsp" />
+<jsp:include page="/WEB-INF/partials/navbar.jsp" />
 
 <div class="container">
     <h1>Welcome to your profile! <c:out value="${user.username}"/></h1>
