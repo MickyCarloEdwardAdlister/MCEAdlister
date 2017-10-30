@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: michael
@@ -15,16 +16,24 @@
 
     <h2>Update ads information</h2>
 
-    <form action="/ads/create" method="post">
+    <form action="/ads/update" method="post">
+
+        <input type="hidden" name="id" value="${ad.id}">
 
         <div class = "form-group">
             <label for = "title">title</label>
-            <input type="text" id="title" name="title" class = "form-control">
+            <input type="text" id="title" name="title" class = "form-control" value="${ad.title}">
+            <c:if test="${errors.containsKey('title')}">
+                <p>${errors.get('title')}</p>
+            </c:if>
         </div>
 
         <div class = "form-group">
             <label for = "description">description</label>
-            <input type="text" id="description" name="description" class = "form-control">
+            <input type="text" id="description" name="description" class = "form-control" value="${ad.description}">
+            <c:if test="${errors.containsKey('description')}">
+                <p>${errors.get('description')}</p>
+            </c:if>
         </div>
 
         <button type = "update"  class="btn btn-primary btn-block">Update</button>
