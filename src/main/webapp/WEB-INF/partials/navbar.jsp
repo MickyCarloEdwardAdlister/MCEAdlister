@@ -9,7 +9,7 @@
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class=" navbar-header">
-            <a class="  navbar-brand lead w3-container w3-center w3-animate-zoom "  href="/ads" id="kraigzlizt">
+            <a class="  title-index navbar-brand lead w3-container w3-center w3-animate-zoom "  href="/ads" id="kraigzlizt">
                 <- Kraigzlizt ->
             </a>
         </div>
