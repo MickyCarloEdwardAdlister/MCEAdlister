@@ -15,4 +15,14 @@ public class DeleteServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.sendRedirect("/ads");
     }
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String id = request.getParameter("id");
+        DaoFactory.getAdsDao().userDelete(Integer.valueOf(id));
+        if(request.getHeader("Referer").contains("show")){
+            response.sendRedirect("/ads");
+        } else {
+            response.sendRedirect(request.getHeader("Referer"));
+        }
+    }
 }
