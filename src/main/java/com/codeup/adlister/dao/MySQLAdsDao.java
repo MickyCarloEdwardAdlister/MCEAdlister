@@ -26,9 +26,10 @@ public class MySQLAdsDao implements Ads {
             throw new RuntimeException("Error connecting to the database!", e);
         }
     }
- public List<Ad> search(String searchTerm) {
-        try{
-            PreparedStatement stmt = connection.prepareStatement( "SELECT * FROM ads WHERE title LIKE ? OR description LIKE ?");
+
+    public List<Ad> search(String searchTerm) {
+        try {
+            PreparedStatement stmt = connection.prepareStatement("SELECT * FROM ads WHERE title LIKE ? OR description LIKE ?");
             stmt.setString(1, "%" + searchTerm + "%");
             stmt.setString(2, "%" + searchTerm + "%");
             ResultSet rs = stmt.executeQuery();
@@ -47,6 +48,7 @@ public class MySQLAdsDao implements Ads {
             return null;
         }
     }
+
     @Override
     public List<Ad> all() {
         PreparedStatement statement = null;
@@ -110,6 +112,20 @@ public class MySQLAdsDao implements Ads {
             ads.add(extractAd(rs));
         }
         return ads;
+    }
+
+    public List<Ad> findByUsername(long user_id) {
+        PreparedStatement stmt;
+        try {
+            stmt = connection.prepareStatement("SELECT * FROM ads WHERE user_id = ?");
+            stmt.setLong(1, user_id);
+            ResultSet rs =stmt.executeQuery();
+            return createAdsFromResults(rs);
+
+        } catch (SQLException e) {
+          throw new RuntimeException("error retrieving your ads");
+
+        }
     }
 }
 
