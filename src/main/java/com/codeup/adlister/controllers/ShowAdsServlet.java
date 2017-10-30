@@ -1,6 +1,7 @@
 package com.codeup.adlister.controllers;
 
 //import com.codeup.adlister.dao.DaoFactory;
+import com.codeup.adlister.dao.DaoFactory;
 import com.codeup.adlister.models.Ad;
 
 import javax.servlet.ServletException;
@@ -18,11 +19,11 @@ public class ShowAdsServlet extends HttpServlet {
 
         HttpSession session = request.getSession();
 
-//        List<Ad> ads = DaoFactory.getAdsDao().all();
-//
-//        session.setAttribute("firstAd", ads.get(0).getTitle());
-//
-//        request.setAttribute("ads", ads);
+        List<Ad> ads = DaoFactory.getAdsDao().all();
+
+        session.setAttribute("firstAd", ads.get(1).getTitle());
+
+        request.setAttribute("ads", ads);
 
         request.getRequestDispatcher("/WEB-INF/ads/index.jsp").forward(request, response);
     }
