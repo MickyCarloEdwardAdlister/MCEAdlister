@@ -1,9 +1,10 @@
-<nav class="navbar navbar-default">
+
+<nav class="back navbar navbar-default" id="back">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-            <a class="navbar-brand lead w3-container w3-center w3-animate-zoom" href="/ads">
-                Welcome to Pink Cheese Cool Arrows ----> ---->Adlister
+            <a class=" title-index navbar-brand lead w3-container w3-center w3-animate-zoom" href="/ads">
+                <- Kraigzlizt ->
             </a>
         </div>
         <ul class="nav navbar-nav navbar-right">
@@ -12,7 +13,7 @@
                 <button type="submit">search</button>
             </form>
 
-            <li><a href="/logout">Logout</a></li>
+            <li><a href="/logout" id="logout">Logout</a></li>
             <li><a id="timer"></a></li>
         </ul>
     </div><!-- /.navbar-collapse -->

@@ -7,8 +7,6 @@
     <jsp:include page="/WEB-INF/partials/head.jsp">
         <jsp:param name="title" value="Home"/>
     </jsp:include>
-    <link rel="stylesheet" href="/assets/css/styles.css">
-    <link rel="stylesheet" href="jquery-ui.min.css">
 </head>
 <body class="index_background">
 <jsp:include page="/WEB-INF/partials/navbar.jsp"/>
@@ -20,8 +18,6 @@
     </div>
 </div>
 
-<script src="/resources/jquery/j-query.js" type="text/javascript"></script>
-<script src = "/resources/jquery/jquery-ui.js" type="text/javascript"></script>
-<script src="/resources/js/some.js" type="text/javascript"></script>
+<jsp:include page="/WEB-INF/partials/scripts.jsp"/>
 </body>
 </html>
