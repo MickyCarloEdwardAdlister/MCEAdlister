@@ -47,6 +47,7 @@ public class MySQLAdsDao implements Ads {
             return null;
         }
     }
+
     @Override
     public List<Ad> all() {
         PreparedStatement statement = null;
@@ -132,17 +133,34 @@ public class MySQLAdsDao implements Ads {
     }
     public void update(Ad ad) {
         try {
-            String query = "UPDATE ads SET (title=?, description=?) WHERE id=?";
+            String query = "UPDATE ads SET title=?, description=? WHERE id=?";
             PreparedStatement statement = connection.prepareStatement(query
             );
-            statement.setLong(1, ad.getId());
-            statement.setString(2, ad.getTitle());
-            statement.setString(3, ad.getDescription());
+            statement.setString(1, ad.getTitle());
+            statement.setString(2, ad.getDescription());
+            statement.setLong(3, ad.getId());
 
             statement.executeUpdate();
 
         } catch (SQLException e) {
             throw new RuntimeException("Error creating a new ad.", e);
+        }
+    }
+
+    @Override
+    public Ad findById(long id) {
+        String SearchQuery = "SELECT * FROM ads WHERE id = ? LIMIT 1";
+
+        try {
+
+
+            PreparedStatement statement = connection.prepareStatement(SearchQuery);
+            statement.setLong(1, id);
+            ResultSet resultSet = statement.executeQuery();
+            resultSet.next();
+            return  extractAd(resultSet);
+        } catch (SQLException e) {
+            throw new RuntimeException("Error finding users", e);
         }
     }
 
