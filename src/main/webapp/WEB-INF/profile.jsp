@@ -17,7 +17,15 @@
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
 
 <div class="container">
-    <h1>Welcome to <c:out value="${user.username}"/> store!</h1>
+    <h1>Welcome to your profile, <c:out value="${user.username}"/></h1>
+
+    <a href="/ads/create" class="btn btn-primary" id="profile-create-ads"> create your ad</a>
+    <c:forEach var="ad" items="${ads}">
+        <div class="col-md-6">
+            <h2><c:out value="${ad.title}"/></h2>
+            <p><c:out value="${ad.description}"/></p>
+        </div>
+    </c:forEach>
 
 </div>
 </body>
