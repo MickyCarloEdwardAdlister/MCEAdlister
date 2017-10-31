@@ -1,10 +1,5 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: michael
-  Date: 10/25/17
-  Time: 2:56 PM
-  To change this template use File | Settings | File Templates.
---%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -12,10 +7,12 @@
         <jsp:param name="title" value="Login" />
     </jsp:include>
 </head>
-<body>
-<%--<jsp:include page="/WEB-INF/partials/navbar.jsp" />--%>
+
+<jsp:include page="/WEB-INF/partials/navbar.jsp" />
+
+<body  class="index_background">
 <div class="container">
-    <h1>Log in here Amigos!</h1>
+    <h1>Log in here!</h1>
     <form action="/login" method="POST">
         <div class="form-group">
             <label for="username">Username</label>
