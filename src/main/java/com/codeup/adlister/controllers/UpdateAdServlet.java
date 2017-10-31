@@ -3,7 +3,6 @@ package com.codeup.adlister.controllers;
 import com.codeup.adlister.dao.DaoFactory;
 import com.codeup.adlister.models.Ad;
 import com.codeup.adlister.models.User;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -19,7 +18,7 @@ public class UpdateAdServlet extends HttpServlet {
         String id = request.getParameter("id");
         Ad ad = DaoFactory.getAdsDao().findById(Long.parseLong(id));
         request.setAttribute("ad", ad);
-        request.getRequestDispatcher("/WEB-INF/ads/update.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/ads/updateAd.jsp").forward(request, response);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -47,7 +46,7 @@ public class UpdateAdServlet extends HttpServlet {
 
         if (!errors.isEmpty()) {
             request.setAttribute("errors", errors);
-            request.getRequestDispatcher("/WEB-INF/ads/update.jsp").forward(request, response);
+            request.getRequestDispatcher("/WEB-INF/ads/updateAd.jsp").forward(request, response);
         } else {
             ad.setTitle(title);
             ad.setDescription(description);

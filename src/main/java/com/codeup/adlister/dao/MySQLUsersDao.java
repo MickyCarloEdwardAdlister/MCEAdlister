@@ -53,30 +53,21 @@ public class MySQLUsersDao implements Users {
             statement.executeUpdate();
             ResultSet rs = statement.getGeneratedKeys();
             rs.next();
-
-
             return rs.getLong(1);
-
 
         } catch (SQLException e) {
             throw new RuntimeException("Error creating user", e);
-
-
         }
     }
-
     private User extractUser(ResultSet rs) throws SQLException {
         if (!rs.next()) {
             return null;
-
-
         } else {
             return new User(
                     rs.getLong("id"),
                     rs.getString("username"),
                     rs.getString("email"),
                     rs.getString("password")
-
             );
         }
     }
@@ -93,5 +84,10 @@ public class MySQLUsersDao implements Users {
         } catch (SQLException e) {
             throw new RuntimeException("Error creating a new ad.", e);
         }
+    }
+
+    @Override
+    public User findById(long l) {
+        return null;
     }
 }
