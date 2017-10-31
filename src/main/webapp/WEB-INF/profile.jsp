@@ -10,27 +10,36 @@
 <html>
 <head>
     <jsp:include page="/WEB-INF/partials/head.jsp">
-        <jsp:param name="title" value="Your Profile" />
+        <jsp:param name="title" value="Your Profile"/>
     </jsp:include>
 </head>
 <body id="profile-back">
-<jsp:include page="/WEB-INF/partials/navbar.jsp" />
+<jsp:include page="/WEB-INF/partials/navbar.jsp"/>
 <div class="container">
-    <h1>Welcome to your profile! <c:out value="${user.username}"/></h1>
+    <div style="height: 30px">
+        <h1 class="awesome text-left" id="welcome">Welcome!</h1>
+    </div>
+    <div style="height: 40px">
+        <h3><c:out value="${sessionScope.user.username}"/></h3>
+    </div>
+<div style="height: 40px">
+<h3> here are your ads </h3>
+</div>
 
-    <jsp:include page="/WEB-INF/partials/category-option.jsp"/>
-    <a href="/ads/create" class="btn btn-primary" id="profile-create-ads"> create your ad</a>
-    <c:forEach var="ad" items="${ads}">
-        <div class="col-md-6">
-            <h2><c:out value="${ad.title}"/></h2>
-            <p><c:out value="${ad.description}"/></p>
-            <a href="/delete?id=<c:out value="${ad.id}"/>" class="btn btn-primary" id="delete"> Delete Ad</a>
-            <a href="ads/update?id=<c:out value="${ad.id}"/>" class="btn btn-primary" id="update"> update</a>
 
-        </div>
-    </c:forEach>
+<jsp:include page="/WEB-INF/ads/category-option.jsp"/>
+<c:forEach var="ad" items="${ads}">
+    <div class="col-md-6">
+        <h2><c:out value="${ad.title}"/></h2>
+        <p><c:out value="${ad.description}"/></p>
+        <a href="/delete?id=<c:out value="${ad.id}"/>" class="btn btn-primary" id="delete"> Delete Ad</a>
+        <a href="ads/update?id=<c:out value="${ad.id}"/>" class="btn btn-primary" id="update"> update</a>
 
-<jsp:include page="partials/scripts.jsp" />
+
+    </div>
+</c:forEach>
+
+<jsp:include page="partials/scripts.jsp"/>
 </div>
 </body>
 </html>

@@ -17,17 +17,27 @@
 <jsp:include page="/WEB-INF/partials/navbar.jsp"/>
 
 <div class="container">
+    <form action="/cat" method="get">
+        <select name="searchCat">
+            <option value="0" selected disabled>Search by Category</option>
+            <c:forEach var="category" items="${categories}" varStatus="loop">
+                <option value="${loop.index + 1}">${category.value}</option>
+            </c:forEach>
+        </select>
+        <button class="btn btn-primary">Submit</button>
+    </form>
 
-   <h1>Here are all the Ads:</h1>
-    <a href="/ads" id="search-category">Search By Category</a>
+        <h1>Here are all the Ads:</h1>
 
-    <c:forEach var="ad" items="${ads}">
+
+        <c:forEach var="ad" items="${ads}">
         <div class="col-md-6">
             <h2><c:out value="${ad.title}"/></h2>
             <p><c:out value="${ad.description}"/></p>
         </div>
-    </c:forEach>
+        </c:forEach>
 </div>
+</form>
 
 </body>
 </html>

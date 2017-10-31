@@ -14,7 +14,7 @@
 
 <div class="container">
     <h1>Log in here!</h1>
-    <form action="/category-form.jsp" method="POST">
+    <form action="/category" method="POST">
         <div class="form-group">
             <label for="category-form">category</label>
             <input id="category-form" name="category-form" class="form-control" type="text">

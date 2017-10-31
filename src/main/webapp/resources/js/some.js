@@ -39,6 +39,9 @@ if(p) {
 $('#login').on("click", function(){
     $('#login').css().display = "none";
 });
+$(document).ready(function(){
+    $("#indexText").hide(0).delay(500).fadeIn(3000)
+});
 
 
 
