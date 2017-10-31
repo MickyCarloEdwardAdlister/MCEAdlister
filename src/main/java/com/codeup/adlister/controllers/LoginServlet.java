@@ -18,6 +18,7 @@ import java.io.IOException;
             response.sendRedirect("/profile");
             return;
         }
+
         request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
     }
 

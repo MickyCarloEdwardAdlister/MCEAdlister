@@ -15,10 +15,10 @@
 </head>
 <body id="profile-back">
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
-
 <div class="container">
     <h1>Welcome to your profile! <c:out value="${user.username}"/></h1>
 
+    <jsp:include page="/WEB-INF/partials/category-option.jsp"/>
     <a href="/ads/create" class="btn btn-primary" id="profile-create-ads"> create your ad</a>
     <c:forEach var="ad" items="${ads}">
         <div class="col-md-6">
@@ -30,6 +30,7 @@
         </div>
     </c:forEach>
 
+<jsp:include page="partials/scripts.jsp" />
 </div>
 </body>
 </html>

@@ -19,6 +19,7 @@
 <div class="container">
 
    <h1>Here are all the Ads:</h1>
+    <a href="/ads" id="search-category">Search By Category</a>
 
     <c:forEach var="ad" items="${ads}">
         <div class="col-md-6">
