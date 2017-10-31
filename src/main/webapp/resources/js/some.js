@@ -16,9 +16,9 @@ function myTimer() {
     document.getElementById("timer").innerHTML = d.toLocaleTimeString();
     return myVar;
 }
-var id = setTimeout(loginPromt, 888000);
-function loginPromt() {
-var p = confirm("would like to log in");
+// var id = setTimeout(loginPromt, 888000);
+// function loginPromt() {
+// var p = confirm("would like to log in");
 
 if(p) {
     window.location = "/login";
@@ -27,7 +27,7 @@ if(p) {
     window.location = "/index.jsp"
     clearTimeout(id);
 
-}
+
 }
 // function createAdForUser() {
 //     var button = document.getElementById('profile-create-ads').onclick;
