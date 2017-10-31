@@ -11,6 +11,7 @@
 <body class="index_background">
 <jsp:include page="/WEB-INF/partials/navbar.jsp"/>
 
+
 <div class="container-fuid">
     <p><i class="fa fa-spinner w3-spin" style="font-size:64px"></i></p>
 
