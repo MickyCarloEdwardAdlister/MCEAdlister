@@ -10,6 +10,4 @@ public interface Users {
     Long insert(User user);
     void updateProfile(User user);
 
-    User findById(long l);
-
 }
