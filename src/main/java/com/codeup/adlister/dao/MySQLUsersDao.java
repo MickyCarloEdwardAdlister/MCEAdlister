@@ -80,4 +80,18 @@ public class MySQLUsersDao implements Users {
             );
         }
     }
+    public void updateProfile(User user) {
+        try {
+            String query = "UPDATE users SET email=? WHERE id=?";
+            PreparedStatement statement = connection.prepareStatement(query
+            );
+            statement.setString(1, user.getEmail());
+            statement.setLong(2, user.getId());
+
+            statement.executeUpdate();
+
+        } catch (SQLException e) {
+            throw new RuntimeException("Error creating a new ad.", e);
+        }
+    }
 }

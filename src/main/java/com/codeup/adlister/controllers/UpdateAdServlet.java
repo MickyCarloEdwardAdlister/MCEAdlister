@@ -12,8 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.HashMap;
 
-@WebServlet(name = "UpdateServlet", urlPatterns = "/ads/update")
-public class UpdateServlet extends HttpServlet {
+@WebServlet(name = "UpdateAdServlet", urlPatterns = "/ads/update")
+public class UpdateAdServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String id = request.getParameter("id");
@@ -53,8 +53,7 @@ public class UpdateServlet extends HttpServlet {
             ad.setDescription(description);
             DaoFactory.getAdsDao().update(ad);
             response.sendRedirect("/profile");
+           }
         }
-        }
-
     }
 }
