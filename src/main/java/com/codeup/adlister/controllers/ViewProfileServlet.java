@@ -16,10 +16,12 @@ import java.sql.SQLException;
 public class ViewProfileServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // If the user is not logged in
-        if (request.getSession().getAttribute("user") == null) {
+        User user = (User) request.getSession().getAttribute("user");
+        if (user == null) {
             response.sendRedirect("/login");
         }
-        User user = (User) request.getSession().getAttribute("user");
+
+        request.setAttribute("user", user);
 
         request.setAttribute("ads", DaoFactory.getAdsDao().findByUsername(user.getId()));
 

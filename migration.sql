@@ -14,6 +14,13 @@ CREATE TABLE users(
   PRIMARY KEY (id)
 );
 
+
+Create table categories(
+id int UNSIGNED not null AUTO_INCREMENT,
+  name VARCHAR(240) not null,
+  PRIMARY KEY (id)
+);
+
 CREATE TABLE ads(
   id INT UNSIGNED NOT NULL  AUTO_INCREMENT,
   user_id INT UNSIGNED NOT NULL,
