@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: michael
@@ -24,8 +25,8 @@
 
         <div class = "form-group">
             <label for = "email">Email</label>
-            <input type="text" id="email" name="email" class = "form-control" value="${email}">
-            <c:if test="${errors.containsKey('title')}">
+            <input type="text" id="email" name="email" class = "form-control" value="${user.email}">
+            <c:if test="${errors.containsKey('email')}">
                 <p>${errors.get('email')}</p>
             </c:if>
         </div>

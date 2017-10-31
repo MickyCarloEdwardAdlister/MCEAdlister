@@ -15,18 +15,28 @@ import java.util.HashMap;
 public class UpdateUserServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String id = request.getParameter("id");
-        User user = DaoFactory.getUsersDao().findById(Long.parseLong(id));
+        User user = (User) request.getSession().getAttribute("user");
         request.setAttribute("user", user);
-        request.getRequestDispatcher("/WEB-INF/user/updateUser.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/users/updateUser.jsp").forward(request, response);
     }
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         User user = (User) request.getSession().getAttribute("user");
-        HashMap<String, String> errors = new HashMap<>();
 
+        HashMap<String, String> errors = new HashMap<>();
         String email = request.getParameter("email");
-        String id = request.getParameter("id");
+        if(email.isEmpty()){
+            errors.put("email","An Email is required");
+        }
+        if(!errors.isEmpty()){
+            request.setAttribute("errors", errors);
+            request.setAttribute("user", user);
+            request.getRequestDispatcher("/WEB-INF/users/updateUser.jsp").forward(request, response);
+        }else{
+            user.setEmail(email);
+            DaoFactory.getUsersDao().updateProfile(user);
+            response.sendRedirect("/profile");
+        }
 
     }
 }

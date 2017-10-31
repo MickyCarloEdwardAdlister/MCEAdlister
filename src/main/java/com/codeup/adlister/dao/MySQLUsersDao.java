@@ -82,7 +82,7 @@ public class MySQLUsersDao implements Users {
             statement.executeUpdate();
 
         } catch (SQLException e) {
-            throw new RuntimeException("Error creating a new ad.", e);
+            throw new RuntimeException("Error creating a new user.", e);
         }
     }
 

@@ -30,7 +30,7 @@
         </div>
     </c:forEach>
 
-<jsp:include page="partials/scripts.jsp" />
+<jsp:include page="../partials/scripts.jsp" />
 </div>
 </body>
 </html>
