@@ -27,7 +27,7 @@
                             <button type="submit" class="btn btn-primary">Search Ads</button>
                         </form>
                     </li>
-                    <li><a id="timer"></a></li>
+                    <%--<li><a id="timer"></a></li>--%>
                 </c:when>
                 <c:when test="${sessionScope.get('user') != null}">
                     <li class="navb"><a href="/logout" id="logout">Logout</a></li>
