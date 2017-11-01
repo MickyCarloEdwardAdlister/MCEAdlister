@@ -27,15 +27,18 @@
         <button class="btn btn-primary">Submit</button>
     </form>
 
-        <h1>Here are all the Ads:</h1>
+    <h1>Here are all the Ads:</h1>
 
 
-        <c:forEach var="ad" items="${ads}">
+    <c:forEach var="ad" items="${ads}">
         <div class="col-md-6">
-            <h2><c:out value="${ad.title}"/></h2>
-            <p><c:out value="${ad.description}"/></p>
+                <h2><c:out value="${ad.title}"/></h2>
+                <p><c:out value="${ad.description}"/></p>
+                <p><c:out value="${ad.category}"/></p>
+
         </div>
-        </c:forEach>
+        <a href="/ads">see details</a>
+    </c:forEach>
 </div>
 </form>
 

@@ -21,6 +21,7 @@ public class ViewProfileServlet extends HttpServlet {
             response.sendRedirect("/login");
         }
 
+        request.setAttribute("categories", DaoFactory.getAdsDao().getCategories());
         request.setAttribute("user", user);
 
         request.setAttribute("ads", DaoFactory.getAdsDao().findByUsername(user.getId()));

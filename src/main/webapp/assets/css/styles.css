@@ -164,6 +164,12 @@ font-size: 50px;
 
 
 }
+#profile-user-name {
+    font-size: 45px;
+}
+#ad-box{
+    float: right;
+}
 
 @-webkit-keyframes colorchange {
     0% {

@@ -46,7 +46,16 @@
                     <li class="navb" id="navSearch">
                         <form action="/search" method="get" class="navbar-form navbar-left">
                             <div class="form-group">
-                                <input type="text" name="search" class="form-control">
+
+                                <select name="searchCategories" class="">
+                                    <option value="0" selected disabled>Search by Category</option>
+                                    <c:forEach var="category" items="${categories}" varStatus="loop">
+                                        <option value="${loop.index + 1}">${category.value}</option>
+                                        <option href="/category">--Add New Category--</option>
+                                    </c:forEach>
+                                    <input type="text" name="search" class="form-control">
+
+                                </select>
                             </div>
 
                             <button type="submit" class="btn btn-primary"><span
