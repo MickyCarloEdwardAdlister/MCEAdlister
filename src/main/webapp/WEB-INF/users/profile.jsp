@@ -21,19 +21,22 @@
     </div>
 
     <c:forEach var="ad" items="${ads}">
-        <div class="center-text" style="height: auto; width: auto; border: 2px solid black;">
+        <div id="cont">
+        <div id="ad-title-profile"class="center-text" style="height: auto; width: auto; border: 2px solid black;">
             <h2 style="overflow: auto;" class="text-center"><c:out value="${ad.title}"/></h2>
         </div>
-        <div style="height: auto; width: auto; border: 2px solid black;">
-            <p><c:out value="${ad.description}"/></p>
+        <div id="ad-description-profile" style="height: auto; width: auto; border: 2px solid black;">
+            <p style="overflow: auto;"><c:out value="${ad.description}"/></p>
         </div>
-        <div style="height: auto; width: auto; border: 2px solid black;">
+        <div style="height: auto; width: auto;">
             <a href="/delete?id=<c:out value="${ad.id}"/>" class="btn btn-primary" id="delete"> Delete Ad</a>
             <a href="ads/update?id=<c:out value="${ad.id}"/>" class="btn btn-primary" id="update"> update</a>
         </div>
+        </div>
+    </c:forEach>
     </div>
 </div>
-</c:forEach>
+
 
 <jsp:include page="/WEB-INF/partials/scripts.jsp" />
 

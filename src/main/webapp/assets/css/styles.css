@@ -72,8 +72,10 @@ nav.back {
 }
 
 html #profile-back {
-    background-image: url("http://lorempixel.com/400/200");
-    background-size: cover;
+    /*background-image: url("http://lorempixel.com/400/200");*/
+    /*background-size: cover;*/
+    background-color: orange;
+
 }
 
 /*#profile-back-login {*/
@@ -228,4 +230,17 @@ font-size: 50px;
 }
 #welcome{
     text-align: left;
+}
+
+/*profile ads */
+#ad-title-profile{
+    background-color: sandybrown;
+
+}
+#ad-description-profile{
+    background-color: cornsilk;
+}
+#cont{
+    float: left;
+    margin: 5px;
 }

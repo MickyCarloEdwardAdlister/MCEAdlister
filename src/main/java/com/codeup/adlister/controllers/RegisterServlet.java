@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.swing.*;
 import java.io.IOException;
+import java.util.HashMap;
 
 @WebServlet(name = "controllers.RegisterServlet", urlPatterns = "/register")
 public class RegisterServlet extends HttpServlet {
@@ -28,21 +29,46 @@ public class RegisterServlet extends HttpServlet {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
         String confirm_password = request.getParameter("confirm_password");
-
-
-        boolean inputErrors =
-                        username.isEmpty()
+              request.getAttribute("user");
+        String hash = Password.hash(password);
+        boolean emptyInput =
+                username.isEmpty()
                         || email.isEmpty()
                         || password.isEmpty()
                         || confirm_password.isEmpty()
                         || (!password.equals(confirm_password));
 
-        if (inputErrors) {
-            request.setAttribute("error", "All the values are required");
+
+        HashMap<String,String> registerError = new HashMap<>();
+        if (username.isEmpty()){
+            registerError.put("username","username is empty");
+        }else {
+            request.setAttribute("username",username);
+
+        }
+        if (email.isEmpty()){
+            registerError.put("email","email is empty");
+        }else {
+            request.setAttribute("email",email);
+
+        }
+        if (password.isEmpty()){
+            registerError.put("password","password is empty");
+        }
+        if (confirm_password.isEmpty()){
+            registerError.put("confirm_password","confirm password is empty");
+        }
+
+
+
+        if (emptyInput) {
+            request.setAttribute("error", registerError);
+
             request.getRequestDispatcher("/WEB-INF/register.jsp").forward(request,response);
             return;
         }
-        String hash = Password.hash(password);
+//        request.setAttribute("error", registerError);
+
         User user = new User(username, email, hash);
         DaoFactory.getUsersDao().insert(user);
         response.sendRedirect("/login");
