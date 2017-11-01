@@ -7,6 +7,8 @@ import com.mysql.cj.jdbc.Driver;
 
 import java.sql.*;
 
+import Daos.Config;
+
 public class MySQLUsersDao implements Users {
     private Connection connection;
 
