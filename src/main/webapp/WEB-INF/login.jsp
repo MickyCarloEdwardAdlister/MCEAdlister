@@ -12,19 +12,19 @@
 
 <body  class="index_background">
 <div class="container">
-    <h1>Log in here!</h1>
+    <h1 id="login-here-form">Log in here!</h1>
     <form action="/login" method="POST">
         <div class="form-group">
-            <label for="username">Username</label>
-         <input id="username" name="username" class="form-control" type="text">
+            <label for="username" id="user-log">Username</label>
+         <input id="username" name="username" class="form-control" type="text" required>
         </div>
 
         <div class="form-group">
-            <label for="password">Password</label>
-            <input id="password" name="password" class="form-control" type="password">
+            <label for="password" id="pass-log">Password</label>
+            <input id="password" name="password" class="form-control" type="password"required>
         </div>
 
-        <button type="submit" class="btn btn-primary btn-block">login</button>
+        <button type="submit" class="btn btn-primary btn-block"><span class="glyphicon-glyphicon-user"></span>login</button>
     </form>
 </div>
 <script src="/resources/jquery/j-query.js" type="text/javascript"></script>

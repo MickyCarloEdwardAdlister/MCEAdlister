@@ -5,9 +5,16 @@ public class Ad {
     private Long userId;
     private String title;
     private String description;
+    private int category;
 
     public Ad() { }
-
+    public Ad(long userId, String title, String description, int category) {
+        this.id = id;
+        this.userId = userId;
+        this.title = title;
+        this.description = description;
+        this.category = category;
+    }
     public Ad(long id, long userId, String title, String description) {
         this.id = id;
         this.userId = userId;
