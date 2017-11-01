@@ -5,6 +5,7 @@ import com.codeup.adlister.models.Ad;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import com.mysql.cj.jdbc.Driver;
@@ -90,6 +91,36 @@ public class MySQLAdsDao implements Ads {
             throw new RuntimeException("error retrieving your ads");
         }
 
+    }
+    @Override
+    public List<Ad> searchCategories(int query){
+        PreparedStatement stmt = null;
+        try {
+            String sql = "select * from ads where category = ?";
+            stmt = connection.prepareStatement(sql);
+            stmt.setInt(1,query);
+            ResultSet rs = stmt.executeQuery();
+            return createAdsFromResults(rs);
+        }catch (SQLException e) {
+           throw new RuntimeException("Error retrieving ads", e);
+        }
+    }
+
+    @Override
+    public HashMap<Integer, String> getCategories(){
+        PreparedStatement stmt = null;
+        try{
+            stmt = connection.prepareStatement("SELECT  * from categories");
+            ResultSet rs = stmt.executeQuery();
+            HashMap<Integer, String> toReturn = new HashMap<>();
+            while (rs.next()) {
+                toReturn.put(rs.getInt(1),rs.getString(2));
+            }
+            return toReturn;
+        }catch (SQLException e) {
+            throw new RuntimeException("Error finding categories");
+
+        }
     }
 
     @Override

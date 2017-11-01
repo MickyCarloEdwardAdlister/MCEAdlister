@@ -18,26 +18,49 @@
         <ul class="nav navbar-nav navbar-right">
             <c:choose>
                 <c:when test="${sessionScope.get('user') == null}">
-                    <li class="navb"><a href="/login" id="login">Login</a></li>
+                    <li class="navb"><a href="/login" id="login"><span
+                            class="glyphicon glyphicon-flash"></span>Login</a></li>
+                    <li class="navb"><a href="/register" id="register"><span class="glyphicon glyphicon-file"></span>register</a>
+                    </li>
                     <li class="navb" id="navSearch">
                         <form action="/search" method="get" class="navbar-form navbar-left">
                             <div class="form-group">
                                 <input type="text" name="search" class="form-control">
                             </div>
-                            <button type="submit" class="btn btn-primary">Search Ads</button>
+                            <button type="submit" class="btn btn-primary"><span
+                                    class="glyphicon glyphicon-search"></span>Search Ads
+                            </button>
                         </form>
                     </li>
                     <%--<li><a id="timer"></a></li>--%>
                 </c:when>
                 <c:when test="${sessionScope.get('user') != null}">
-                    <li class="navb"><a href="/logout" id="logout">Logout</a></li>
-                    <li class="navb"><a href="/ads" id="view">View All Ads</a></li>
+                    <li class="navb"><a href="/logout" id="logout"><span class="glyphicon glyphicon-eject"></span>
+                        Logout</a>
+                    </li>
+                    <li class="navb"><a href="/ads" id="view"><span class="glyphicon glyphicon-list-alt"></span> View
+                        All
+                        Ads</a></li>
+                    <li><a href="/ads/create" id="createNewAd"><span class="glyphicon glyphicon-pencil"></span> New
+                        Ad</a></li>
                     <li class="navb" id="navSearch">
                         <form action="/search" method="get" class="navbar-form navbar-left">
                             <div class="form-group">
-                                <input type="text" name="search" class="form-control">
+
+                                <select name="searchCategories" class="">
+                                    <option value="0" selected disabled>Search by Category</option>
+                                    <c:forEach var="category" items="${categories}" varStatus="loop">
+                                        <option value="${loop.index + 1}">${category.value}</option>
+                                        <option href="/category">--Add New Category--</option>
+                                    </c:forEach>
+                                    <input type="text" name="search" class="form-control">
+
+                                </select>
                             </div>
-                            <button type="submit" class="btn btn-primary">Search Ads</button>
+
+                            <button type="submit" class="btn btn-primary"><span
+                                    class="glyphicon glyphicon-search"></span> Search Ads
+                            </button>
                         </form>
                     </li>
                     <li><a id="timer"></a></li>
@@ -45,8 +68,6 @@
 
                 </c:when>
             </c:choose>
-
-
 
 
         </ul>
