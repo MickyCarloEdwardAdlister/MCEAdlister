@@ -10,42 +10,58 @@
 <html>
 <head>
 
-<title>register new user</title>
+    <title>register new user</title>
 </head>
 <body class="index_background">
-<jsp:include page="/WEB-INF/partials/navbar.jsp" />
-    <jsp:include page="partials/head.jsp" />
-    <div class="container">
-        <h1 id="register-form">Please Register</h1>
+<jsp:include page="/WEB-INF/partials/navbar.jsp"/>
+<jsp:include page="partials/head.jsp"/>
+<div class="container">
+    <h1 id="register-form">Please Register</h1>
 
-        <c:if test="${error != null}">
-            <p>${error}</p>
-        </c:if>
 
-        <form action="/register" method="post">
-            <div class="form-group">
-                <label for="username" id="user-reg">Username</label> <input id="username" name="username" class="form-control" type="text"required>
-            </div>
+    <form action="/register" method="post">
+        <div class="form-group">
+            <label for="username" id="user-reg">Username</label>
+            <input id="username" name="username" class="form-control" type="text" value="${username}">
+            <c:if test="${error != null}">
+                <p>${error}</p>
+            </c:if>
 
-            <div class="form-group">
-                <label for="email" id="email-reg">email</label><input id="email" name="email" class="form-control" type="text"required>
-            </div>
+            <c:if test="${registerError.containsKey('username')}">
+                <span class="errors">${registerError.get('username')}</span>
+            </c:if>
+        </div>
 
-            <div class="form-group">
-                <label for="password" id="pass-reg">Password</label> <input id="password" class="form-control" name="password" type="password"required>
-            </div>
+        <div class="form-group">
+            <label for="email" id="email-reg">email</label>
+            <input id="email" name="email" class="form-control" type="text" value="${email}">
+            <c:if test="${registerError.containsKey('email')}">
+                <span>${registerError.get('email')}</span>
+            </c:if>
+        </div>
 
-            <div class="form-group">
-                <label for="confirm_password" id="con-pass-reg">Confirm Password</label>
-                <input id="confirm_password" name="confirm_password" class="form-control" type="password"required>
-            </div>
-            <button type="submit"  class="btn btn-primary btn-block" >Register</button>
+        <div class="form-group">
+            <label for="password" id="pass-reg">password</label>
+            <input id="password" class="form-control" name="password" type="password">
+            <c:if test="${registerError.containsKey('password')}">
+                <span>${registerError.get('password')}</span>
+            </c:if>
+        </div>
 
-        </form>
+        <div class="form-group">
+            <label for="confirm_password" id="con-pass-reg">Confirm Password</label>
+            <input id="confirm_password" name="confirm_password" class="form-control" type="password">
+            <c:if test="${registerError.containsKey('confirm_password')}">
+                <span>${registerError.get('confirm_password')}</span>
+            </c:if>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Register</button>
 
-    </div>
+    </form>
+
+</div>
 <script src="/resources/jquery/j-query.js" type="text/javascript"></script>
-<script src = "/resources/jquery/jquery-ui.js" type="text/javascript"></script>
+<script src="/resources/jquery/jquery-ui.js" type="text/javascript"></script>
 <script src="/resources/js/some.js" type="text/javascript"></script>
 
 
