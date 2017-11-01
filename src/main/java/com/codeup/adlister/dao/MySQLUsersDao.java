@@ -2,15 +2,12 @@ package com.codeup.adlister.dao;
 
 import java.sql.Connection;
 import Daos.Config;
-
 import com.codeup.adlister.models.User;
 import com.mysql.cj.jdbc.Driver;
-
 import java.sql.*;
 
 public class MySQLUsersDao implements Users {
     private Connection connection;
-
     public MySQLUsersDao(Config config) {
         try {
             DriverManager.registerDriver(new Driver());
@@ -23,14 +20,10 @@ public class MySQLUsersDao implements Users {
             throw new RuntimeException("Error connecting to the database!", e);
         }
     }
-
     @Override
     public User findByUsername(String username) {
         String SearchQuery = "SELECT * FROM Users WHERE username = ? LIMIT 1";
-
         try {
-
-
             PreparedStatement statement = connection.prepareStatement(SearchQuery);
             statement.setString(1, username);
             return (User) extractUser(statement.executeQuery());
@@ -38,13 +31,10 @@ public class MySQLUsersDao implements Users {
             e.printStackTrace();
             throw new RuntimeException("Error finding users", e);
         }
-
     }
-
     @Override
     public Long insert(User user) {
         String createUserQuery = "INSERT INTO users(username, email, password) VALUES(?,?,?)";
-
         try {
             PreparedStatement statement = connection.prepareStatement(createUserQuery, Statement.RETURN_GENERATED_KEYS);
             statement.setString(1, user.getUsername());
@@ -85,5 +75,8 @@ public class MySQLUsersDao implements Users {
             throw new RuntimeException("Error creating a new user.", e);
         }
     }
+    public void changePassword(User user) {
+//
+   }
 
 }
