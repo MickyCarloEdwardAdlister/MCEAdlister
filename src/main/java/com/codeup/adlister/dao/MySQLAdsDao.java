@@ -1,6 +1,7 @@
 package com.codeup.adlister.dao;
 
 import Daos.Config;
+
 import com.codeup.adlister.models.Ad;
 
 import java.sql.*;

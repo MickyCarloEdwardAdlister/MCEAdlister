@@ -1,12 +1,13 @@
 package com.codeup.adlister.dao;
 
 import java.sql.Connection;
-import Daos.Config;
 
 import com.codeup.adlister.models.User;
 import com.mysql.cj.jdbc.Driver;
 
 import java.sql.*;
+
+import Daos.Config;
 
 public class MySQLUsersDao implements Users {
     private Connection connection;
