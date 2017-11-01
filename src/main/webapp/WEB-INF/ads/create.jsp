@@ -18,15 +18,26 @@
     <form action="/ads/create" method="post">
         <div class = "form-group">
             <label for = "title">title</label>
-            <input type="text" id="title" name="title" class = "form-control">
+            <input type="text" required id="title" name="title" class = "form-control">
         </div>
         <div class = "form-group">
-            <label for = "description">description</label>
-            <input type="text" id="description" name="description" class = "form-control">
+
+            <label for="description">Description</label>
+            <textarea id="description" name="description" class="form-control" type="text" required></textarea>
         </div>
+        <div>
+        <select name="category">
+            <option value="0" selected>Select a Category</option>
+            <c:forEach var="category" items="${categories}" varStatus="loop">
+                <option value="${loop.index + 1}">${category.value}</option>
+            </c:forEach>
+        </select>
+            </div>
+        <div>
         <button type = "submit"  class="btn btn-primary btn-block">
             create new ad
         </button>
+            </div>
     </form>
 </div>
 </body>

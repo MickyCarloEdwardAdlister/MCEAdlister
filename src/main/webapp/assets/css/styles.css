@@ -1,86 +1,231 @@
-
-
+@import url('https://fonts.googleapis.com/css?family=Anton');
 .index_background {
-/*background-image: url('https://media2.giphy.com/avatars/100soft/WahNEDdlGjRZ.gif');*/
-width: auto;
-height: auto;
-margin-left: auto;
-margin-right: auto;
+    background-image: url('https://media2.giphy.com/avatars/100soft/WahNEDdlGjRZ.gif');
+    width: auto;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
 }
+
 #timer {
     top: 0px;
     position: relative;
     font-weight: bold;
     font-size: 20px;
     left: 50px;
-    color: pink;
+    color: orange;
 }
 
 /*#title-index {*/
 
-    /*margin-top: 25px;*/
-    /*font-size: 21px;*/
-    /*text-align: center;*/
+/*margin-top: 25px;*/
+/*font-size: 21px;*/
+/*text-align: center;*/
 
-    /*-webkit-animation: top 5s; !* Safari, Chrome and Opera > 12.1 *!*/
-    /*animation: fadein 5s;*/
+/*-webkit-animation: top 5s; !* Safari, Chrome and Opera > 12.1 *!*/
+/*animation: fadein 5s;*/
 /*}*/
 
 /*@keyframes fadein {*/
-    /*from { opacity: 0; }*/
-    /*to   { opacity: 1; }*/
+/*from { opacity: 0; }*/
+/*to   { opacity: 1; }*/
 /*}*/
 nav.back {
     background-color: teal;
+    position: static;
 }
 
-#login{
-    color: orange;
-    font-size: 20px;
-    font-weight: bold;
+#login {
+    font-family: 'Anton', sans-serif;
+    font-size: 26px;
+    color: white;
 
 }
+
 /*#kraigzlizt{*/
-    /*color: orange;*/
-    /*font-weight: bold;*/
-    /*font-size: 26px;*/
-    /*align-items: center;*/
+/*color: orange;*/
+/*font-weight: bold;*/
+/*font-size: 26px;*/
+/*align-items: center;*/
 
 /*}*/
 .title-index {
     color: orange;
-font-weight: bold;
-font-size: 28px;
-align-items: center;
+    font-weight: bold;
+    font-size: 28px;
+    align-items: center;
 
 }
+
 .title-index:link,
 .title-index:visited,
 .title-index:hover,
 .title-index:active {
     color: orange;
 }
-#logout{
-    color: orange;
-    font-size: 20px;
-    font-weight: bold;
 
+#logout {
+    font-family: 'Anton', sans-serif;
+    font-size: 26px;
+    color: white;
 
 }
-#profile-back {
-    background-color: orange;
+
+html #profile-back {
+    background-image: url("http://lorempixel.com/400/200");
+    background-size: cover;
 }
 
-#profile-back-login {
-    background-color: orange;
-}
+/*#profile-back-login {*/
+    /*background-color: orange;*/
+/*}*/
 
 #view {
-    color: orange;
-    font-size: 20px;
-    font-weight: bold;
+    font-family: 'Anton', sans-serif;
+    font-size: 26px;
+    color: white;
 
 }
-.navb{
-display: inline-flex;
+#register{
+    font-family: 'Anton', sans-serif;
+    font-size: 26px;
+    color: white;
+
+}
+.navb {
+    display: inline-flex;
+}
+
+#indexText {
+    width: 100%;
+    color: black;
+    background: linear-gradient(to left, yellow, orange, red);
+    font-weight: bold;
+    text-align: center;
+    display: inline-block;
+    font-size: 35px;
+    position: relative;
+    top: 70px;
+    margin-top: 40px;
+
+
+    opacity: .6;
+}
+#pass-log, #user-log{
+    font-weight: bold;
+    color: black;
+    font-size: 25px;
+
+}
+
+#login-here-form{
+    font-family: 'Anton', sans-serif;
+font-size: 50px;
+  color: white;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: blink;
+
+}
+#user-reg,#email-reg,#pass-reg,#con-pass-reg {
+    font-weight: bold;
+    color: black;
+    font-size: 25px;
+}
+#register-form{
+    font-family: 'Anton', sans-serif;
+    font-size: 50px;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: blink;
+
+}
+#createNewAd {
+    font-family: 'Anton', sans-serif;
+    font-size: 26px;
+    color: white;
+}
+.awesome {
+
+    font-family: futura;
+    font-style: italic;
+
+    width:100%;
+
+    margin: 0 auto;
+    text-align: center;
+
+    color:#313131;
+    font-size:45px;
+    font-weight: bold;
+    position: absolute;
+    -webkit-animation:colorchange 20s infinite alternate;
+
+
+}
+#profile-user-name {
+    font-size: 45px;
+}
+#ad-box{
+    float: right;
+}
+
+@-webkit-keyframes colorchange {
+    0% {
+
+        color: blue;
+    }
+
+    10% {
+
+        color: #8e44ad;
+    }
+
+    20% {
+
+        color: #ffd34e;
+    }
+
+    30% {
+
+        color: #d35400;
+    }
+
+    40% {
+
+        color: #ffd34e;
+    }
+
+    50% {
+
+        color: #34495e;
+    }
+
+    60% {
+
+        color: #fff8f3;
+    }
+
+    70% {
+
+        color: #2980b9;
+    }
+    80% {
+
+        color: #f1c40f;
+    }
+
+    90% {
+
+        color: #2980b9;
+    }
+
+    100% {
+
+        color: pink;
+    }
+}
+#welcome{
+    text-align: left;
 }

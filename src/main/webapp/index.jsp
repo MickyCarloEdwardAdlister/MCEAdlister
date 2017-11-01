@@ -17,6 +17,12 @@
 
     <div class="w3-container w3-center w3-animate-zoom">
     </div>
+
+</div>
+<div id="kraigslist-p">
+    <p class="text-center" id="indexText">
+        "kraigslizt,  A place for creepy people..."
+    </p>
 </div>
 
 <jsp:include page="/WEB-INF/partials/scripts.jsp"/>
