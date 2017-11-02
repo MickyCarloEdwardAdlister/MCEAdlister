@@ -25,7 +25,7 @@
         <div id="ad-title-profile"class="center-text" style="height: auto; width: auto; border: 2px solid black;">
             <h2 style="overflow: auto;" class="text-center"><c:out value="${ad.title}"/></h2>
         </div>
-        <div id="ad-description-profile" style="height: auto; width: auto; border: 2px solid black;">
+        <div id="ad-description-profile" class="center-text" style="height: auto; width: auto; border: 2px solid black;">
             <p style="overflow: auto;"><c:out value="${ad.description}"/></p>
         </div>
         <div style="height: auto; width: auto;">
